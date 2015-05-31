@@ -12,6 +12,7 @@ This repository contains the starter code for a modern client side web app.
 - [Webpack](http://webpack.github.io/) for building modules
 - [Babel](http://babeljs.io/) for transpiling es6 code with jsx
 - jQuery for ajax calls (never used for DOM Manipulation!)
+- [FlexBox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) for CSS layouts that don't suck
 
 ## Getting Started
 
@@ -28,6 +29,8 @@ I also recommend reading the [Learn ES6](http://babeljs.io/docs/learn-es2015/) s
 ### Styling
 
 This project does NOT use CSS. Since the whole UI is composed of small reusable components, each component contains its own styles in javascript. I recommend reading [this](https://speakerdeck.com/vjeux/react-css-in-js) slideshow on writing CSS in JS. While it may seem counter-intuitive, going this route prevents problems with global css selectors and allows us to use variables, composition, and all the power of a full programming language. Read the overview of [Radium](http://projects.formidablelabs.com/radium/) to see how styles are implemented in this project. [Box.js](app/components/ui/Box.js) is an example of a resusable component with encapsulated styles.
+
+I also recommend you become familiar with the [FlexBox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) standard. It is supported in all modern browsers, just not in ie 9 or lower.
 
 ### Structure
 
