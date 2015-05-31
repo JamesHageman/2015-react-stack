@@ -23,7 +23,7 @@ Start by reading the [Official React Docs](http://facebook.github.io/react/docs/
   
 To understand the core architecture of the application, watch Facebook's introductory video on the [Flux Architecture](http://facebook.github.io/flux/) and read the [overview](http://facebook.github.io/flux/docs/overview.html#content). Then, read the [Alt.js docs](http://alt.js.org/guide/) to learn about the API of the Flux implementation that is used in this project. 
 
-I also recommend reading the [Learn ES6](http://babeljs.io/docs/learn-es2015/) section of the Babel.js website. This project uses the next version of javascript that is not fully supported in modern browsers. It features classes, modules, arrow functions, and a lot of extra syntax that is not available in ES5. Babel is a tool that compiles our ES6 code so it runs as normal ES5 in any browser. 
+I also recommend reading the [Learn ES6](http://babeljs.io/docs/learn-es2015/) section of the Babel.js website. This project uses the next version of javascript that is not fully supported in modern browsers. It features classes, modules, arrow functions, and a lot of extra syntax that is not available in ES5. Babel is a tool that compiles our ES6 code so it runs as normal ES5 in any browser. You can install [Babel-Sublime](https://github.com/babel/babel-sublime) for syntax highlighting in Sublime Text.
 
 ### Styling
 
