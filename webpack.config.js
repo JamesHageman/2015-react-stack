@@ -7,7 +7,7 @@ module.exports = {
     path: __dirname + '/public',
     filename: 'bundle.js'
   },
-  devtool: '#inline-source-map',
+  devtool: process.env.NODE_ENV !== 'production' ? '#inline-source-map' : undefined,
   module: {
     loaders: [
       {
