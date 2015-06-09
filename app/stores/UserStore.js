@@ -11,6 +11,10 @@ class UserStore {
     this.user = null;
 
     this.bindActions(UserActions);
+
+    this.exportPublicMethods({
+      loggedIn: this.loggedIn
+    });
   }
 
   onCheckSession() {
@@ -23,6 +27,10 @@ class UserStore {
 
   onReceiveSession(data) {
     this.user = data.user;
+  }
+
+  loggedIn() {
+    return !!this.user;
   }
 }
 

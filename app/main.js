@@ -1,6 +1,5 @@
 import 'normalize.css'
 import './body.css'
-// import 'babel-core/polyfill'
 
 import React from 'react'
 import App from './components/containers/App'

@@ -1,0 +1,4 @@
+.base {
+  border-bottom: 1px solid $BORDER_COLOR;
+  background-color: $HEADER_BACKGROUND;
+}

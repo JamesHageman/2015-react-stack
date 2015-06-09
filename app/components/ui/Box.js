@@ -4,6 +4,8 @@ import Radium from 'radium'
 import color from 'color'
 import { SCREEN_SMALL, PADDING } from '../../constants/UIConstants'
 
+import styles from '../stylesheets/Box.css'
+
 var Box = React.createClass({
   propTypes: {
     column: React.PropTypes.bool,
@@ -11,57 +13,33 @@ var Box = React.createClass({
       React.PropTypes.number,
       React.PropTypes.bool
     ]),
-    padding: React.PropTypes.bool
+    padding: React.PropTypes.bool,
+    className: React.PropTypes.string
   },
 
   getDefaultProps() {
     return {
       column: false,
       grow: false,
-      padding: true
+      padding: true,
+      className: ''
     };
   },
 
   render() {
     return (
-      <div
-        style={[
+      <div className={
+        classNames(
           styles.box,
-          this.props.column && styles.column,
+          this.props.grow && styles.grow,
           this.props.padding && styles.padding,
-          styles.grow(this.props.grow)
-        ]}>
-
+          this.props.className
+        )
+      }>
         {this.props.children}
-
       </div>
     )
   }
 });
 
-var styles = {
-  box: {
-    display: 'flex',
-    flexDirection: 'row',
-    [SCREEN_SMALL]: {
-      flexDirection: 'column'
-    }
-  },
-  column: {
-    flexDirection: 'column'
-  },
-  padding: {
-    padding: PADDING
-  },
-  grow(val) {
-    if (val === false) {
-      return undefined;
-    }
-    if (val === true) {
-      return { flexGrow: 1 };
-    }
-    return { flexGrow: val };
-  }
-};
-
-export default Radium.Enhancer(Box)
+export default Box
