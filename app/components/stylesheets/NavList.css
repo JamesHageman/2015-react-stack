@@ -2,6 +2,12 @@
 .link {
   text-decoration: none;
   color: inherit;
+  overflow: hidden;
+
+  @media ($SCREEN_SMALL) {
+    transition: max-height 0.3s ease;
+    max-height: 40px;
+  }
 }
 
 .link:global(.active) {
@@ -10,4 +16,18 @@
 
 .linkBox {
   width: 100px;
+}
+
+.dropdownToggle {
+  display: none;
+
+  @media ($SCREEN_SMALL) {
+    display: flex;
+  }
+}
+
+.collapse {
+  @media ($SCREEN_SMALL) {
+    max-height: 0;
+  }
 }
