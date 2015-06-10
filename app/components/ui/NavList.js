@@ -29,6 +29,12 @@ var NavList = React.createClass({
     });
   },
 
+  _collapse() {
+    this.setState({
+      collapse: true
+    });
+  },
+
   _renderList() {
     var {items} = this.props;
     return items.map((item) => {
@@ -36,7 +42,8 @@ var NavList = React.createClass({
         key: item.title,
         target: item.target,
         className: className(styles.link,
-                             this.state.collapse && styles.collapse)
+                             this.state.collapse && styles.collapse),
+        onClick: this._collapse
       };
 
       var content = (
