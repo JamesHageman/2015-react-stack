@@ -7,9 +7,9 @@ class UserActions {
 
     UserService.checkSession().then((data) => {
       this.actions.receiveSession(data);
-    }).catch(() => {
+    }, (err) => {
       this.actions.noSession();
-    })
+    });
   }
 
   receiveSession(data) {

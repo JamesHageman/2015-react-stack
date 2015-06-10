@@ -1,0 +1,13 @@
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:global(.active) {
+  border-right: 3px solid $BORDER_COLOR;
+}
+
+.linkBox {
+  width: 100px;
+}

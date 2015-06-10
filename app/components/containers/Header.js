@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import connect from '../connect'
 import Box from '../ui/Box'
+import UserMenu from '../ui/UserMenu'
 import UserStore from '../../stores/UserStore'
 import styles from '../stylesheets/Header.css'
 
@@ -16,17 +17,14 @@ class Header extends Component {
     return (
       <Box padding={false} className={styles.base}>
         <Box grow>
-          My App.
+          My App
         </Box>
-        <Box>
+        <Box padding={false} verticalAlign>
           {user === undefined &&
             'Loading...'
           }
-          {user === null &&
-            'Not logged in'
-          }
           {user &&
-            'Logged in as ' + user.name
+            <UserMenu user={user}/>
           }
         </Box>
       </Box>

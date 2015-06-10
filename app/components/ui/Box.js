@@ -1,8 +1,5 @@
 import React from 'react'
 import classNames from 'classnames'
-import Radium from 'radium'
-import color from 'color'
-import { SCREEN_SMALL, PADDING } from '../../constants/UIConstants'
 
 import styles from '../stylesheets/Box.css'
 
@@ -14,6 +11,7 @@ var Box = React.createClass({
       React.PropTypes.bool
     ]),
     padding: React.PropTypes.bool,
+    verticalAlign: React.PropTypes.bool,
     className: React.PropTypes.string
   },
 
@@ -22,6 +20,7 @@ var Box = React.createClass({
       column: false,
       grow: false,
       padding: true,
+      verticalAlign: false,
       className: ''
     };
   },
@@ -33,6 +32,8 @@ var Box = React.createClass({
           styles.box,
           this.props.grow && styles.grow,
           this.props.padding && styles.padding,
+          this.props.column && styles.column,
+          this.props.verticalAlign && styles.verticalAlign,
           this.props.className
         )
       }>

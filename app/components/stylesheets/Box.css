@@ -3,7 +3,13 @@
   flex-direction: row;
 
   @media ($SCREEN_SMALL) {
-    flex-direction: column;
+
+    &:not(.noCollapse) {
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
   }
 }
 
@@ -13,4 +19,12 @@
 
 .padding {
   padding: 8px;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.verticalAlign {
+  align-items: center;
 }
