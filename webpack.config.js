@@ -18,10 +18,24 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         loader: process.env.NODE_ENV !== 'production' ?
             'style!css?module&importLoaders=1&localIdentName=[path][name]---[local]---[hash:base64:5]!postcss'
           :
             'style!css?module&importLoaders=1&localIdentName=[hash:base64:5]!postcss'
+      },
+      {
+        test: /\.css$/,
+        exclude: /app/,
+        loader: 'style!css!postcss'
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&minetype=application/font-woff'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader'
       },
       {
         test: /\.json$/,

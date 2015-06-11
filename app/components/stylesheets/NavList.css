@@ -20,9 +20,14 @@
 
 .dropdownToggle {
   display: none;
+  border-bottom: 1px solid $BORDER_COLOR;
 
   @media ($SCREEN_SMALL) {
     display: flex;
+  }
+
+  &:hover {
+    background-color: #eee;
   }
 }
 

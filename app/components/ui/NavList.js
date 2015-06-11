@@ -2,7 +2,8 @@ import React from 'react'
 import {Link} from 'react-router'
 import styles from '../stylesheets/NavList.css'
 import Box from '../ui/Box'
-import className from 'classnames'
+import cx from 'classnames'
+import Icon from './Icon'
 
 var {arrayOf, shape, string, bool} = React.PropTypes;
 
@@ -41,8 +42,10 @@ var NavList = React.createClass({
       var sharedProps = {
         key: item.title,
         target: item.target,
-        className: className(styles.link,
-                             this.state.collapse && styles.collapse),
+        className: cx(
+          styles.link,
+          this.state.collapse && styles.collapse
+        ),
         onClick: this._collapse
       };
 
@@ -61,11 +64,12 @@ var NavList = React.createClass({
   },
 
   render() {
+    var iconName = (this.state.collapse) ? 'chevron-right' : 'chevron-down';
 
     return (
       <Box padding={false} column>
-        <Box className={styles.dropdownToggle}>
-          <button onClick={this._toggleDropdown}>Hamburger</button>
+        <Box className={styles.dropdownToggle} onClick={this._toggleDropdown}>
+          <Icon name={iconName} />
         </Box>
         {
           this._renderList()

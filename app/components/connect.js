@@ -4,7 +4,7 @@ import React from 'react'
 
 /*
 
-A decorator for smart components in /containers
+A decorator for smart components in /components/containers/
 
 Usage:
 

@@ -13,6 +13,8 @@
   }
 }
 
+.noCollapse {}
+
 .grow {
   flex-grow: 1;
 }

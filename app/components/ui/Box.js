@@ -1,6 +1,6 @@
 import React from 'react'
-import classNames from 'classnames'
-
+import cx from 'classnames'
+import _ from 'underscore'
 import styles from '../stylesheets/Box.css'
 
 var Box = React.createClass({
@@ -25,18 +25,32 @@ var Box = React.createClass({
     };
   },
 
+  _getDivProps() {
+    return _.omit(this.props, [
+      'column',
+      'grow',
+      'padding',
+      'verticalAlign',
+      'className',
+      'children'
+    ]);
+  },
+
   render() {
     return (
-      <div className={
-        classNames(
-          styles.box,
-          this.props.grow && styles.grow,
-          this.props.padding && styles.padding,
-          this.props.column && styles.column,
-          this.props.verticalAlign && styles.verticalAlign,
-          this.props.className
-        )
-      }>
+      <div
+        className={
+          cx(
+            styles.box,
+            this.props.grow && styles.grow,
+            this.props.padding && styles.padding,
+            this.props.column && styles.column,
+            this.props.verticalAlign && styles.verticalAlign,
+            this.props.noCollapse && styles.noCollapse,
+            this.props.className
+          )
+        }
+        {...this._getDivProps()}>
         {this.props.children}
       </div>
     )
