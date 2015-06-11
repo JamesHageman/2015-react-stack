@@ -21,4 +21,4 @@ class MenuStore {
   }
 }
 
-export default alt.createStore(MenuStore);
+export default alt.createStore(MenuStore, 'MenuStore');

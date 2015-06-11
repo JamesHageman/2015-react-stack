@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import Promise from 'bluebird'
+import {Promise} from 'es6-promise'
 import HttpActions from '../actions/HttpActions'
 
 

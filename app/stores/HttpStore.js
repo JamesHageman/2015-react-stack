@@ -19,4 +19,4 @@ class HttpStore {
   }
 }
 
-export default alt.createStore(HttpStore)
+export default alt.createStore(HttpStore, 'HttpStore')
