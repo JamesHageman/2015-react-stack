@@ -8,7 +8,7 @@ This repository contains the starter code for a modern client side web app.
 - [Alt.js](https://github.com/goatslacker/alt), a [Flux](http://facebook.github.io/flux/) implementation for managing data 
 - [Bluebird](https://github.com/petkaantonov/bluebird) for Promises / async operations
 - [Moment](http://momentjs.com/) for date processing / formatting
-- [Radium](http://projects.formidablelabs.com/radium/) for component based styling (no global css!)
+- [PostCSS](https://github.com/postcss/postcss) for advanced css preprocessing
 - [Webpack](http://webpack.github.io/) for building modules
 - [Babel](http://babeljs.io/) for transpiling es6 code with jsx
 - jQuery for ajax calls (never used for DOM Manipulation!)
@@ -28,9 +28,9 @@ I also recommend reading the [Learn ES6](http://babeljs.io/docs/learn-es2015/) s
 
 ### Styling
 
-This project does NOT use CSS. Since the whole UI is composed of small reusable components, each component contains its own styles in javascript. I recommend reading [this](https://speakerdeck.com/vjeux/react-css-in-js) slideshow on writing CSS in JS. While it may seem counter-intuitive, going this route prevents problems with global css selectors and allows us to use variables, composition, and all the power of a full programming language. Read the overview of [Radium](http://projects.formidablelabs.com/radium/) to see how styles are implemented in this project. [Box.js](app/components/ui/Box.js) is an example of a resusable component with encapsulated styles.
+Every component has an individual stylesheet in `components/stylesheets/`. These files contain the local style definitions for their component. When these css files are imported, their class names are converted to LOCAL class names. This means that a `.box { ... }` gets converted to something like `.cbi7C { ... }` and when imported to Javascript, `styles.box` will equal `"cbi7C"`. [This article](https://medium.com/seek-ui-engineering/the-end-of-global-css-90d2a4a06284) explains what happens a little more clearly - I recommend you read all of it. [Box.js](app/components/ui/Box.js) is an example of a resusable component with local, encapsulated styles.
 
-I also recommend you become familiar with the [FlexBox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) standard. It is supported in all modern browsers, just not in ie 9 or lower.
+I also recommend you become familiar with the [FlexBox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) standard. This project uses it throughout for layout and alignment. It is supported in all modern browsers, just not in ie 9 or lower. 
 
 ### Structure
 
