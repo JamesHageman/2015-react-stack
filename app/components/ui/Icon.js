@@ -6,11 +6,18 @@ import _ from 'underscore'
 
 var Icon = React.createClass({
   propTypes: {
-    name: React.PropTypes.string.isRequired
+    name: React.PropTypes.string.isRequired,
+    spin: React.PropTypes.bool
+  },
+
+  getDefaultProps() {
+    return {
+      spin: false
+    }
   },
 
   _getIconProps() {
-    return _.omit(this.props, ['name', 'className']);
+    return _.omit(this.props, ['name', 'spin', 'className']);
   },
 
   render() {
@@ -20,6 +27,7 @@ var Icon = React.createClass({
           cx(
             'fa',
             'fa-' + this.props.name,
+            this.props.spin && 'fa-spin',
             styles.base,
             this.props.className
           )
