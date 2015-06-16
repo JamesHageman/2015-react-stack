@@ -66,7 +66,9 @@ var NavList = React.createClass({
       if (item.route || item.route === undefined) {
         return (
           <li className={liClassName} key={item.title}>
-            <Link to={item.link} params={item.params} {...sharedProps}>{content}</Link>
+            <Link to={item.link} params={item.params} {...sharedProps}>
+              {content}
+            </Link>
           </li>
         );
       } else {
