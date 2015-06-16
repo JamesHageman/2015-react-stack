@@ -12,6 +12,8 @@ const HttpService = {
       },
       type: 'json',
 
+      errorMessage: 'Error making request',
+
       // merge the options provided
       ...opts,
 
@@ -19,15 +21,16 @@ const HttpService = {
       url
     };
 
-    HttpActions.startRequest();
+    HttpActions.startRequest(args);
 
     return new Promise((resolve, reject) => {
       $.ajax(args).then((data) => {
         resolve(data);
-      }).fail((statusText) => {
-        reject(statusText);
-      }).always(() => {
-        HttpActions.endRequest();
+      }).fail((jqXHR, textStatus, errorThrown) => {
+        HttpActions.failRequest(args, textStatus, errorThrown);
+        reject(textStatus);
+      }).always((result) => {
+        HttpActions.endRequest(args, result);
       });
     });
 

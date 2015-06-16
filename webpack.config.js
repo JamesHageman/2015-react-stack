@@ -1,13 +1,14 @@
+/*eslint-env node */
 var path = require('path');
 var autoprefixer = require('autoprefixer-core');
 
 var DEVELOPMENT = (process.env.NODE_ENV !== 'production');
 
 module.exports = {
-  context: __dirname + '/app',
+  context: path.join(__dirname, '/app'),
   entry: './main.js',
   output: {
-    path: __dirname + '/public',
+    path: path.join(__dirname, '/public'),
     filename: 'bundle.js'
   },
   devtool: DEVELOPMENT ? '#inline-source-map' : undefined,
@@ -16,7 +17,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'eslint',
-        exclude: /node_modules/
+        exclude: /(node_modules|vendor)/
       }
     ],
 

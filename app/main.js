@@ -1,6 +1,7 @@
 /* main.js - the entry point of the application */
 
 import './body.global.less';
+import './vendor/animate.css';
 
 import $ from 'jquery';
 import React from 'react';
