@@ -6,10 +6,11 @@
   },
   "rules": {
     "strict": 0,
-    "handle-callback-err": 0,
-    "quotes": [2, "single"]
+    "quotes": [2, "single"],
+    "eqeqeq": [2],
+    "indent": [2, 2]
   },
   "globals": {
-      "require": true
+      "require": false
   }
 }

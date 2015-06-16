@@ -67,5 +67,9 @@ module.exports = {
   },
   postcss: [
     require('autoprefixer-core')
-  ]
+  ],
+  eslint: {
+    emitError: true,
+    failOnError: true
+  }
 };
