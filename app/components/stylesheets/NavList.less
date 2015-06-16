@@ -1,0 +1,26 @@
+@import './variables.less';
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+
+.link:global(.active) {
+  /*border-right: 3px solid $BORDER_COLOR;*/
+}
+
+.linkBox {
+  width: 100px;
+}
+
+.dropdownToggle {
+  display: none;
+  border-bottom: 1px solid @border-color;
+}
+
+.collapse {
+  /*@media ($SCREEN_SMALL) {
+    max-height: 0;
+  }*/
+}

@@ -1,10 +1,10 @@
-import React from 'react'
-import Icon from './Icon'
+import React from 'react';
+import Icon from './Icon';
 
 var Spinner = React.createClass({
   render() {
-    return <Icon name="circle-o-notch" spin/>;
+    return <Icon name="spinner" spin/>;
   }
 });
 
-export default Spinner
+export default Spinner;

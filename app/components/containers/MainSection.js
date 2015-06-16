@@ -1,15 +1,14 @@
-import React, {Component} from 'react'
-import Box from '../ui/Box'
-import {RouteHandler} from 'react-router'
+import React, {Component} from 'react';
+import {RouteHandler} from 'react-router';
 
 class MainSection extends Component {
   render() {
     return (
-      <Box grow>
+      <div className="col-md-9 col-sm-12">
         <RouteHandler {...this.props}/>
-      </Box>
+      </div>
     );
   }
 }
 
-export default MainSection
+export default MainSection;

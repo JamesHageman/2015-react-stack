@@ -1,4 +1,4 @@
-import Alt from 'alt'
+import Alt from 'alt';
 
 // central Flux Dispatcher
-export default new Alt()
+export default new Alt();

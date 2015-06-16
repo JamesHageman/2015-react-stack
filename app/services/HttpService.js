@@ -1,6 +1,6 @@
-import $ from 'jquery'
-import {Promise} from 'es6-promise'
-import HttpActions from '../actions/HttpActions'
+import $ from 'jquery';
+import {Promise} from 'es6-promise';
+import HttpActions from '../actions/HttpActions';
 
 
 const HttpService = {
@@ -32,6 +32,6 @@ const HttpService = {
     });
 
   }
-}
+};
 
-export default HttpService
+export default HttpService;

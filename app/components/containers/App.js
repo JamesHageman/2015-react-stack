@@ -1,35 +1,34 @@
-import React, {Component} from 'react'
-import TopLevelBox from '../ui/TopLevelBox'
-import Box from '../ui/Box'
-import Header from './Header'
-import MainSection from './MainSection'
-import Menu from './Menu'
-import connect from '../connect'
-import UserStore from '../../stores/UserStore'
+import React, {Component} from 'react';
+import TopLevelBox from '../ui/TopLevelBox';
+import Header from './Header';
+import MainSection from './MainSection';
+import Menu from './Menu';
+import connect from '../connect';
+import UserStore from '../../stores/UserStore';
 
 
 @connect({
   stores: {
-    UserStore
+    UserStore: UserStore
   },
   transform: (stores) => {
     return {
-      loggedIn: !!stores.UserStore.user
-    }
+      loggedIn: (!!stores.UserStore.user)
+    };
   }
 })
 class App extends Component {
   render() {
-    var {loggedIn} = this.props;
+    var loggedIn = this.props.loggedIn;
 
     return (
       <TopLevelBox>
         <Header/>
         { (loggedIn) &&
-          <Box padding={false} grow>
+          <div className="row">
             <Menu/>
             <MainSection {...this.props}/>
-          </Box>
+          </div>
         }
       </TopLevelBox>
     );

@@ -1,13 +1,15 @@
-import React from 'react'
-import {Link} from 'react-router'
-import styles from '../stylesheets/NavList.css'
-import Box from '../ui/Box'
-import cx from 'classnames'
-import Icon from './Icon'
+import React from 'react';
+import {Link, State as StateMixin} from 'react-router';
+import styles from '../stylesheets/NavList.less';
+import cx from 'classnames';
+import Icon from './Icon';
 
 var {arrayOf, shape, string, bool} = React.PropTypes;
 
 var NavList = React.createClass({
+
+  mixins: [ StateMixin ],
+
   propTypes: {
     items: arrayOf(
       shape({
@@ -37,10 +39,12 @@ var NavList = React.createClass({
   },
 
   _renderList() {
-    var {items} = this.props;
+    var items = this.props.items;
+
     return items.map((item) => {
+      var active = this.isActive(item.link, item.params, item.query);
+
       var sharedProps = {
-        key: item.title,
         target: item.target,
         className: cx(
           styles.link,
@@ -49,34 +53,50 @@ var NavList = React.createClass({
         onClick: this._collapse
       };
 
+      var liClassName = cx(active && 'active');
+
+
+
       var content = (
-        <Box className={styles.linkBox}>
+        <div className={styles.linkBox}>
           {item.title}
-        </Box>
+        </div>
       );
 
       if (item.route || item.route === undefined) {
-        return <Link to={item.link} {...sharedProps}>{content}</Link>
+        return (
+          <li className={liClassName} key={item.title}>
+            <Link to={item.link} params={item.params} {...sharedProps}>{content}</Link>
+          </li>
+        );
       } else {
-        return <a href={item.link} {...sharedProps}>{content}</a>
+        return (
+          <li className={liClassName} key={item.title}>
+            <a href={item.link} {...sharedProps}>{content}</a>
+          </li>
+        );
       }
-    })
+    });
   },
 
   render() {
     var iconName = (this.state.collapse) ? 'chevron-right' : 'chevron-down';
 
     return (
-      <Box padding={false} column>
-        <Box className={styles.dropdownToggle} onClick={this._toggleDropdown}>
+      <div>
+        <button
+          className={cx('btn btn-default', styles.dropdownToggle)}
+          onClick={this._toggleDropdown}>
           <Icon name={iconName} />
-        </Box>
-        {
-          this._renderList()
-        }
-      </Box>
-    )
+        </button>
+        <ul className="nav nav-pills nav-stacked">
+          {
+            this._renderList()
+          }
+        </ul>
+      </div>
+    );
   }
 });
 
-export default NavList
+export default NavList;

@@ -1,6 +1,5 @@
-import AltContainer from 'alt/AltContainer'
-import React from 'react'
-
+import AltContainer from 'alt/AltContainer';
+import React from 'react';
 
 /*
 
@@ -40,5 +39,5 @@ export default function connect(altContainerOptions) {
     });
 
     return ConnectToStores;
-  }
+  };
 }

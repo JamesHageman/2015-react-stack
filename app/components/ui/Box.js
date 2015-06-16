@@ -1,7 +1,7 @@
-import React from 'react'
-import cx from 'classnames'
-import _ from 'underscore'
-import styles from '../stylesheets/Box.css'
+import React from 'react';
+import cx from 'classnames';
+import _ from 'underscore';
+import styles from '../stylesheets/Box.less';
 
 var Box = React.createClass({
   propTypes: {
@@ -12,7 +12,8 @@ var Box = React.createClass({
     ]),
     padding: React.PropTypes.bool,
     verticalAlign: React.PropTypes.bool,
-    className: React.PropTypes.string
+    className: React.PropTypes.string,
+    button: React.PropTypes.bool
   },
 
   getDefaultProps() {
@@ -21,6 +22,7 @@ var Box = React.createClass({
       grow: false,
       padding: true,
       verticalAlign: false,
+      button: false,
       className: ''
     };
   },
@@ -37,8 +39,12 @@ var Box = React.createClass({
   },
 
   render() {
+    var Element = 'div';
+    if (this.props.button) {
+      Element = 'button';
+    }
     return (
-      <div
+      <Element
         className={
           cx(
             styles.box,
@@ -47,14 +53,16 @@ var Box = React.createClass({
             this.props.column && styles.column,
             this.props.verticalAlign && styles.verticalAlign,
             this.props.noCollapse && styles.noCollapse,
+            this.props.button && styles.button,
             this.props.className
           )
         }
-        {...this._getDivProps()}>
+        {...this._getDivProps()}
+        >
         {this.props.children}
-      </div>
-    )
+      </Element>
+    );
   }
 });
 
-export default Box
+export default Box;

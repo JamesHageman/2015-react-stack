@@ -1,5 +1,5 @@
-import alt from '../alt'
-import UserService from '../services/UserService'
+import alt from '../alt';
+import UserService from '../services/UserService';
 
 class UserActions {
   checkSession() {
@@ -22,4 +22,4 @@ class UserActions {
 
 }
 
-export default alt.createActions(UserActions)
+export default alt.createActions(UserActions);

@@ -1,5 +1,5 @@
-import alt from '../alt'
-import HttpActions from '../actions/HttpActions'
+import alt from '../alt';
+import HttpActions from '../actions/HttpActions';
 
 class HttpStore {
   constructor() {
@@ -19,4 +19,4 @@ class HttpStore {
   }
 }
 
-export default alt.createStore(HttpStore, 'HttpStore')
+export default alt.createStore(HttpStore, 'HttpStore');

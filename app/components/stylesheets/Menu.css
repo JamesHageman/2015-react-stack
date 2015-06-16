@@ -1,8 +1,0 @@
-.base {
-  background-color: $HEADER_BACKGROUND;
-  border-right: 1px solid $BORDER_COLOR;
-
-  @media ($SCREEN_SMALL) {
-    border: none;
-  }
-}

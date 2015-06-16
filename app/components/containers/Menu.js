@@ -1,25 +1,25 @@
-import React, {Component} from 'react'
-import MenuStore from '../../stores/MenuStore'
-import connect from '../connect'
-import Box from '../ui/Box'
-import NavList from '../ui/NavList'
-import styles from '../stylesheets/Menu.css'
+import React, {Component} from 'react';
+import MenuStore from '../../stores/MenuStore';
+import connect from '../connect';
+import NavList from '../ui/NavList';
+import styles from '../stylesheets/Menu.less';
+import cx from 'classnames';
 
 @connect({
   stores: {
-    MenuStore
+    MenuStore: MenuStore
   }
 })
 class Menu extends Component {
   render() {
-    var {menuItems} = this.props.MenuStore;
+    var menuItems = this.props.MenuStore.menuItems;
 
     return (
-      <Box padding={false} className={styles.base}>
+      <div className={cx('col-md-3', 'col-sm-12', styles.base)}>
         <NavList items={menuItems}/>
-      </Box>
+      </div>
     );
   }
 }
 
-export default Menu
+export default Menu;

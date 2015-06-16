@@ -1,7 +1,7 @@
-import React from 'react'
-import Box from './Box'
-import styles from '../stylesheets/UserMenu.css'
-import Icon from './Icon'
+import React from 'react';
+import styles from '../stylesheets/UserMenu.less';
+import Icon from './Icon';
+import cx from 'classnames';
 
 var UserMenu = React.createClass({
   propTypes: {
@@ -12,17 +12,16 @@ var UserMenu = React.createClass({
   },
 
   render() {
-    var {name, imageUrl} = this.props.user;
+    var {name} = this.props.user;
+
     return (
-      <Box verticalAlign className={styles.base}>
-        <Box padding={false} noCollapse>
-          <Icon name="user" className={styles.icon}/>
-          {name}
-        </Box>
-      </Box>
+      <div className={styles.base} onClick={this._handleClick}>
+        <Icon name="user" className={styles.icon}/>
+        {name}
+      </div>
     );
 
   }
 });
 
-export default UserMenu
+export default UserMenu;

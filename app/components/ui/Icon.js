@@ -1,19 +1,20 @@
-import React from 'react'
-import cx from 'classnames'
-import 'font-awesome/css/font-awesome.css'
-import styles from '../stylesheets/Icon.css'
-import _ from 'underscore'
+import React from 'react';
+import cx from 'classnames';
+import 'font-awesome/css/font-awesome.css';
+import styles from '../stylesheets/Icon.less';
+import _ from 'underscore';
 
 var Icon = React.createClass({
   propTypes: {
     name: React.PropTypes.string.isRequired,
-    spin: React.PropTypes.bool
+    spin: React.PropTypes.bool,
+    className: React.PropTypes.string
   },
 
   getDefaultProps() {
     return {
       spin: false
-    }
+    };
   },
 
   _getIconProps() {

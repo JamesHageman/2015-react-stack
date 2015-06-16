@@ -1,10 +1,9 @@
-import React, {Component} from 'react'
-import Box from '../ui/Box'
+import React, {Component} from 'react';
 
 class Home extends Component {
   render() {
-    return <Box>Home page</Box>;
+    return <div className="row">Home page</div>;
   }
 }
 
-export default Home
+export default Home;

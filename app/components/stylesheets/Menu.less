@@ -1,0 +1,10 @@
+@import './variables.less';
+
+.base {
+  background-color: $HEADER_BACKGROUND;
+  border: none;
+
+  @media (min-width: @screen-md-min) {
+    border-right: 1px solid @border-color;
+  }
+}
