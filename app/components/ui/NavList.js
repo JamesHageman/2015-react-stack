@@ -4,7 +4,7 @@ import styles from '../stylesheets/NavList.less';
 import cx from 'classnames';
 import Icon from './Icon';
 
-var {arrayOf, shape, string, bool} = React.PropTypes;
+var {arrayOf, shape, string, bool, any} = React.PropTypes;
 
 var NavList = React.createClass({
 
@@ -15,7 +15,9 @@ var NavList = React.createClass({
       shape({
         title: string,
         link: string,
-        route: bool
+        route: bool,
+        params: any,
+        query: any
       })
     )
   },
@@ -54,8 +56,6 @@ var NavList = React.createClass({
       };
 
       var liClassName = cx(active && 'active');
-
-
 
       var content = (
         <div className={styles.linkBox}>
