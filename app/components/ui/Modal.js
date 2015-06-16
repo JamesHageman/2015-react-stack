@@ -14,7 +14,8 @@ var Modal = React.createClass({
     size: React.PropTypes.oneOf(['default', 'small', 'large']),
     onOpen: React.PropTypes.func,
     onClose: React.PropTypes.func,
-    children: React.PropTypes.any.isRequired
+    children: React.PropTypes.any.isRequired,
+    renderFooterButtons: React.PropTypes.func.isRequired
   },
 
   getDefaultProps() {
@@ -22,7 +23,8 @@ var Modal = React.createClass({
       static: false,
       onOpen: _.noop,
       onClose: _.noop,
-      size: 'default'
+      size: 'default',
+      renderFooterButtons: () => []
     };
   },
 
@@ -38,9 +40,19 @@ var Modal = React.createClass({
     }
   },
 
+  componentWillUnmount() {
+    if (this.props.open) {
+      this._closeModal(false);
+    }
+  },
+
   componentDidUpdate(prevProps, prevState) {
     if (this.props.open && !prevProps.open) {
       this._openModal();
+    }
+
+    if (!this.props.open && prevProps.open) {
+      this._closeModal();
     }
   },
 
@@ -56,12 +68,16 @@ var Modal = React.createClass({
                $.fn.modal.Constructor.TRANSITION_DURATION);
   },
 
-  _closeModal() {
+  _closeModal(notify = true) {
     var $modal = this._getModalElem();
 
     $modal.modal('hide');
-    setTimeout(this.props.onClose,
+
+    if (notify) {
+      setTimeout(this.props.onClose,
                $.fn.modal.Constructor.TRANSITION_DURATION);
+    }
+
   },
 
   _renderHeader() {
@@ -95,6 +111,9 @@ var Modal = React.createClass({
           onClick={this._closeModal}>
             Close
         </button>
+        {
+          this.props.renderFooterButtons()
+        }
       </div>
     );
   },
