@@ -11,6 +11,16 @@ import UserActions from './actions/UserActions';
 window.jQuery = $;
 var mountNode = document.body;
 
+$.notifyDefaults({
+  placement: {
+    align: 'center'
+  },
+  animate: {
+    enter: 'animated fadeInDown',
+    exit: 'animated fadeOutUp'
+  }
+});
+
 // we use require() for routes so everything in the app loads after
 // window.jQuery is set.
 var routes = require('./routes');

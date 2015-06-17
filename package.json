@@ -25,8 +25,6 @@
     "less-loader": "^2.2.0",
     "node-libs-browser": "^0.5.2",
     "postcss-loader": "^0.4.4",
-    "postcss-nested": "^0.3.2",
-    "postcss-simple-vars": "^0.3.0",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
     "webpack": "^1.9.10"

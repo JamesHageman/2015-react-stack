@@ -15,14 +15,7 @@ class HttpActions {
       icon: 'fa fa-exclamation-circle'
     },
     {
-      type: 'danger',
-      animate: {
-        enter: 'animated fadeInDown',
-        exit: 'animated fadeOutUp'
-      },
-      placement: {
-        align: 'center'
-      }
+      type: 'danger'
     });
 
     this.dispatch();
