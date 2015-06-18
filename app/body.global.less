@@ -1,6 +1,26 @@
 @import "./components/stylesheets/variables.less";
 @import "~bootstrap/less/bootstrap.less";
 
+@import "./vendor/materialBoxShadow.less";
+@import "./vendor/animate.css";
+
 html, body {
   height: 100%;
+}
+
+/* Bootstrap notify growls */
+[data-notify="container"] {
+  .BoxShadowHelper(3);
+
+  transition: all 150ms;
+
+  &:hover {
+    .BoxShadowHelper(5);
+    transform: translateY(-5px);
+  }
+}
+
+/* Animate.css extension */
+.animated {
+  animation-duration: 700ms;
 }

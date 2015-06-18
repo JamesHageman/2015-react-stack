@@ -9,7 +9,8 @@
     "quotes": [2, "single"],
     "eqeqeq": [2],
     "indent": [2, 2],
-    "max-len": [2, 80, 4]
+    "max-len": [2, 80, 4],
+    "no-console": [0]
   },
   "globals": {
     "require": false
