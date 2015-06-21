@@ -6,6 +6,22 @@ var autoprefixer = require('autoprefixer-core');
 var NODE_ENV = process.env.NODE_ENV || 'development';
 var DEVELOPMENT = (NODE_ENV !== 'production');
 
+var plugins = [
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
+  })
+];
+
+if (!DEVELOPMENT) {
+  plugins.push(
+  new webpack.optimize.UglifyJsPlugin({
+    compressor: {
+      screw_ie8: true,
+      warnings: false
+    }
+  }));
+}
+
 module.exports = {
   context: path.join(__dirname, '/app'),
   entry: [
@@ -36,9 +52,12 @@ module.exports = {
         test: /\.less$/,
         exclude: /(node_modules|global)/,
         loader: DEVELOPMENT ?
-            'style!css?module&importLoaders=2&localIdentName=[path][name]---[local]---[hash:base64:5]!postcss!less'
+            'style!css?module&importLoaders=2&' +
+            'localIdentName=[path][name]---[local]---[hash:base64:5]' +
+            '!postcss!less'
           :
-            'style!css?module&importLoaders=2&localIdentName=[hash:base64:5]!postcss!less'
+            'style!css?module&importLoaders=2&localIdentName=[hash:base64:5]' +
+            '!postcss!less'
       },
       // other stylesheets are globally scoped
       {
@@ -81,15 +100,11 @@ module.exports = {
     ]
   },
   postcss: [
-    require('autoprefixer-core')
+    autoprefixer
   ],
   eslint: {
     emitError: true,
     failOnError: true
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
-    })
-  ]
+  plugins: plugins
 };

@@ -13,6 +13,7 @@
     "no-console": [0],
     "no-unused-vars": [2, {"vars": "all", "args": "none"}],
     "no-underscore-dangle": [0],
+    "camelcase": [2, {"properties": "never"}],
 
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,

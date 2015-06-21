@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "webpack --watch",
     "start": "http-server ./public",
-    "build": "NODE_ENV=production webpack -p"
+    "build": "NODE_ENV=production webpack"
   },
   "author": "James Hageman",
   "license": "ISC",
