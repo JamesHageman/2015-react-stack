@@ -6,8 +6,8 @@ import $ from 'jquery';
 import React from 'react';
 import Router from 'react-router';
 import UserActions from './actions/UserActions';
+import routes from './routes';
 
-window.jQuery = $;
 var mountNode = document.body;
 
 $.notifyDefaults({
@@ -19,10 +19,6 @@ $.notifyDefaults({
     exit: 'animated fadeOutUp'
   }
 });
-
-// we use require() for routes so everything in the app loads after
-// window.jQuery is set.
-var routes = require('./routes');
 
 React.initializeTouchEvents(true);
 

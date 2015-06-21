@@ -4,8 +4,10 @@ import styles from '../stylesheets/Modal.less';
 import Icon from './Icon';
 import $ from 'jquery';
 import cx from 'classnames';
-import 'bootstrap/js/modal';
-import 'bootstrap/js/transition';
+
+// injects jQuery into the scope of these modules
+import 'imports?jQuery=jquery!bootstrap/js/modal';
+import 'imports?jQuery=jquery!bootstrap/js/transition';
 
 var Modal = React.createClass({
   propTypes: {
