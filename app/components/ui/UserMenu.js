@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../stylesheets/UserMenu.less';
 import Icon from './Icon';
-import cx from 'classnames';
 
 var UserMenu = React.createClass({
   propTypes: {

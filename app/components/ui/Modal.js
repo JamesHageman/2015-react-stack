@@ -1,7 +1,5 @@
 import React from 'react';
 import _ from 'underscore';
-import styles from '../stylesheets/Modal.less';
-import Icon from './Icon';
 import $ from 'jquery';
 import cx from 'classnames';
 
