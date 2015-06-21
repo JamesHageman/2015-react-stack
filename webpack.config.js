@@ -13,13 +13,15 @@ var plugins = [
 ];
 
 if (!DEVELOPMENT) {
+  plugins.push(new webpack.optimize.OccurenceOrderPlugin());
   plugins.push(
-  new webpack.optimize.UglifyJsPlugin({
-    compressor: {
-      screw_ie8: true,
-      warnings: false
-    }
-  }));
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        screw_ie8: false,
+        warnings: false
+      }
+    })
+  );
 }
 
 module.exports = {
@@ -104,7 +106,8 @@ module.exports = {
   ],
   eslint: {
     emitError: true,
-    failOnError: true
+    failOnError: true,
+    formatter: require('eslint-friendly-formatter')
   },
   plugins: plugins
 };
