@@ -6,7 +6,10 @@ var DEVELOPMENT = (process.env.NODE_ENV !== 'production');
 
 module.exports = {
   context: path.join(__dirname, '/app'),
-  entry: './main.js',
+  entry: [
+    './index.html',
+    './main.js'
+  ],
   output: {
     path: path.join(__dirname, '/public'),
     filename: 'bundle.js'
@@ -54,15 +57,19 @@ module.exports = {
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000&minetype=application/font-woff'
+        loader: 'url?limit=10000&minetype=application/font-woff'
       },
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
+        loader: 'file'
       },
       {
         test: /\.json$/,
         loader: 'json'
+      },
+      {
+        test: /\.html$/,
+        loader: 'file?name=[name].[ext]'
       }
     ]
   },
