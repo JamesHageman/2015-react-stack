@@ -1,8 +1,10 @@
 /*eslint-env node */
+var webpack = require('webpack');
 var path = require('path');
 var autoprefixer = require('autoprefixer-core');
 
-var DEVELOPMENT = (process.env.NODE_ENV !== 'production');
+var NODE_ENV = process.env.NODE_ENV || 'development';
+var DEVELOPMENT = (NODE_ENV !== 'production');
 
 module.exports = {
   context: path.join(__dirname, '/app'),
@@ -65,6 +67,11 @@ module.exports = {
         loader: DEVELOPMENT ? 'file?name=[name]_[hash].[ext]' : 'file'
       },
       {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        loader: 'url?limit=10000' +
+          (DEVELOPMENT ? '&name=[name]_[hash].[ext]' : '')
+      },
+      {
         test: /\.json$/,
         loader: 'json'
       },
@@ -80,5 +87,10 @@ module.exports = {
   eslint: {
     emitError: true,
     failOnError: true
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
+    })
+  ]
 };
