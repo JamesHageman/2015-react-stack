@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch-server": "webpack-dev-server --content-base public/ --inline --colors",
+    "watch-server": "webpack-dev-server --content-base public/ --inline --colors --progress",
     "watch": "webpack --watch",
     "start": "http-server ./public",
     "build": "NODE_ENV=production webpack"

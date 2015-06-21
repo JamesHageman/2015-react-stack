@@ -47,7 +47,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel?stage=1'
+        loader: 'babel'
       },
       // .less files in /app/components/ are locally scoped
       {
