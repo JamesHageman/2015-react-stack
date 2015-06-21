@@ -8,7 +8,7 @@ import Router from 'react-router';
 import UserActions from './actions/UserActions';
 import routes from './routes';
 
-var mountNode = document.body;
+
 
 $.notifyDefaults({
   placement: {
@@ -22,8 +22,12 @@ $.notifyDefaults({
 
 React.initializeTouchEvents(true);
 
-Router.run(routes, (Root, state) => {
-  React.render(<Root {...state}/>, mountNode);
-});
-
 UserActions.checkSession();
+
+$(document).ready(() => {
+  var mountNode = document.body;
+
+  Router.run(routes, (Root, state) => {
+    React.render(<Root {...state}/>, mountNode);
+  });
+});

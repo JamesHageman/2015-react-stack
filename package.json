@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "watch-server": "webpack-dev-server --content-base public/ --inline --colors",
     "watch": "webpack --watch",
     "start": "http-server ./public",
     "build": "NODE_ENV=production webpack"
@@ -30,7 +31,8 @@
     "postcss-loader": "^0.4.4",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
-    "webpack": "^1.9.10"
+    "webpack": "^1.9.10",
+    "webpack-dev-server": "^1.9.0"
   },
   "dependencies": {
     "alt": "^0.16.7",
