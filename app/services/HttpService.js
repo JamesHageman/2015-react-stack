@@ -33,7 +33,6 @@ const HttpService = {
         HttpActions.endRequest(args, result);
       });
     });
-
   }
 };
 

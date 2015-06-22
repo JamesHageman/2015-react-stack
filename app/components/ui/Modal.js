@@ -20,7 +20,6 @@ var Modal = React.createClass({
 
   getDefaultProps() {
     return {
-      static: false,
       onOpen: _.noop,
       onClose: _.noop,
       size: 'default',
@@ -77,7 +76,6 @@ var Modal = React.createClass({
       setTimeout(this.props.onClose,
                $.fn.modal.Constructor.TRANSITION_DURATION);
     }
-
   },
 
   _renderHeader() {

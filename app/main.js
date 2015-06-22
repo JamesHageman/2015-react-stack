@@ -8,8 +8,6 @@ import Router from 'react-router';
 import UserActions from './actions/UserActions';
 import routes from './routes';
 
-
-
 $.notifyDefaults({
   placement: {
     align: 'center'

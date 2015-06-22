@@ -19,7 +19,6 @@ var UserMenu = React.createClass({
         {name}
       </div>
     );
-
   }
 });
 

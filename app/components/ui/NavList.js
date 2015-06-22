@@ -71,13 +71,13 @@ var NavList = React.createClass({
             </Link>
           </li>
         );
-      } else {
-        return (
-          <li className={liClassName} key={item.title}>
-            <a href={item.link} {...sharedProps}>{content}</a>
-          </li>
-        );
       }
+
+      return (
+        <li className={liClassName} key={item.title}>
+          <a href={item.link} {...sharedProps}>{content}</a>
+        </li>
+      );
     });
   },
 
