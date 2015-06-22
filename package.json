@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "watch-server": "webpack-dev-server --content-base public/ --inline --colors --progress",
-    "watch": "webpack --watch",
+    "watch": "webpack --progress --watch",
     "start": "http-server ./public",
     "profile": "webpack --profile --json > profile_stats.json",
-    "build": "NODE_ENV=production webpack"
+    "build": "NODE_ENV=production webpack --progress"
   },
   "author": "James Hageman",
   "license": "ISC",
