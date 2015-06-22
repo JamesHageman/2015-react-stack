@@ -9,6 +9,20 @@ var DEVELOPMENT = (NODE_ENV !== 'production');
 var plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
+  }),
+
+  new webpack.PrefetchPlugin('bootstrap/less/bootstrap.less'),
+  new webpack.PrefetchPlugin('react'),
+  new webpack.PrefetchPlugin('react-router'),
+  new webpack.PrefetchPlugin('./components/connect.js'),
+  new webpack.PrefetchPlugin('./components/ui/Icon.js'),
+
+  /*
+    Automatically provide jQuery for libraries that use it (like Bootstrap).
+    This plugin adds jQuery = require('jquery'); to the top of such files.
+   */
+  new webpack.ProvidePlugin({
+    jQuery: 'jquery'
   })
 ];
 

@@ -1,5 +1,7 @@
 public
 node_modules
 
+profile_stats.json
+
 *.log
 .DS_Store

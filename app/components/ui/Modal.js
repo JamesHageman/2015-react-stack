@@ -4,8 +4,8 @@ import $ from 'jquery';
 import cx from 'classnames';
 
 // injects jQuery into the scope of these modules
-import 'imports?jQuery=jquery!bootstrap/js/modal';
-import 'imports?jQuery=jquery!bootstrap/js/transition';
+import 'bootstrap/js/modal';
+import 'bootstrap/js/transition';
 
 var Modal = React.createClass({
   propTypes: {
