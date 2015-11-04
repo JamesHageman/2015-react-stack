@@ -2,9 +2,12 @@
 var webpack = require('webpack');
 var path = require('path');
 var autoprefixer = require('autoprefixer-core');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var NODE_ENV = process.env.NODE_ENV || 'development';
 var DEVELOPMENT = (NODE_ENV !== 'production');
+
+var cssTextPlugin = new ExtractTextPlugin('client.bundle.css');
 
 var plugins = [
   new webpack.DefinePlugin({
@@ -23,7 +26,9 @@ var plugins = [
    */
   new webpack.ProvidePlugin({
     jQuery: 'jquery'
-  })
+  }),
+
+  cssTextPlugin
 ];
 
 if (!DEVELOPMENT) {
@@ -68,28 +73,35 @@ module.exports = {
         test: /\.less$/,
         exclude: /(node_modules|global)/,
         loader: DEVELOPMENT ?
-            'style!css?module&importLoaders=2&' +
-            'localIdentName=[path][name]---[local]---[hash:base64:5]' +
-            '!postcss!less'
-          :
-            'style!css?module&importLoaders=2&localIdentName=[hash:base64:5]' +
-            '!postcss!less'
+                cssTextPlugin.extract('style-loader',
+                  'css?module&importLoaders=2&' +
+                  'localIdentName=[path][name]---[local]---[hash:base64:5]&' +
+                  'sourceMap!postcss!less?sourceMap')
+              :
+                cssTextPlugin.extract('style-loader',
+                  'css?module&importLoaders=2&localIdentName=[hash:base64:5]' +
+                  '!postcss!less')
       },
       // other stylesheets are globally scoped
       {
         test: /\.less$/,
-        exclude: /app\/components/,
+        exclude: path.join(__dirname, '/app/components'),
         loader: DEVELOPMENT ?
-            'style!css?importLoaders=2!postcss!less'
+            cssTextPlugin.extract('style-loader',
+                                  'css?importLoaders=2&sourceMap!postcss!' +
+                                  'less?sourceMap')
           :
-            'style!css?importLoaders=2!postcss!less'
+            cssTextPlugin.extract('style-loader',
+                                  'css?importLoaders=2!postcss!less')
       },
       {
         test: /\.css$/,
-        loader: DEVELOPMENT ?
-            'style!css?importLoaders=1!postcss'
+        loader:
+          DEVELOPMENT ?
+            cssTextPlugin.extract('style-loader',
+                                  'css?importLoaders=1&sourceMap!postcss')
           :
-            'style!css?importLoaders=1!postcss'
+            cssTextPlugin.extract('style-loader', 'css?importLoaders=1!postcss')
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
