@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "watch-server": "webpack-dev-server --content-base public/ --inline --colors --progress",
+    "watch-server-windows": "set NODE_ENV=development&& webpack-dev-server --content-base public/ --hot --progress",
     "watch": "webpack --progress --watch",
     "start": "http-server ./public",
     "profile": "webpack --profile --json > profile_stats.json",
-    "build": "NODE_ENV=production webpack --progress"
+    "build": "NODE_ENV=production webpack --progress",
+    "build-windows": "set NODE_ENV=production&& webpack --progress"
   },
   "author": "James Hageman",
   "license": "ISC",
@@ -23,6 +25,7 @@
     "eslint-friendly-formatter": "^1.0.8",
     "eslint-loader": "^0.14.0",
     "eslint-plugin-react": "^2.5.2",
+    "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
     "http-server": "^0.8.0",
     "json-loader": "^0.5.2",
