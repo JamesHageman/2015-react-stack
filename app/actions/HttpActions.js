@@ -13,8 +13,7 @@ class HttpActions {
       message: args.errorMessage + ' ' +
              '<em>' + textStatus + ' ' + errorThrown + '</em>',
       icon: 'fa fa-exclamation-circle'
-    },
-    {
+    }, {
       type: 'danger'
     });
 

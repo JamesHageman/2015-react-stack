@@ -58,7 +58,7 @@ module.exports = {
     preLoaders: [
       {
         test: /\.js$/,
-        loader: 'eslint'
+        loader: 'eslint-loader'
       }
     ],
 
@@ -66,7 +66,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader'
       },
       // .less files in /app/components/ are locally scoped
       {

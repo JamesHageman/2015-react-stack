@@ -7,16 +7,15 @@ import HttpStore from '../../stores/HttpStore';
 import styles from '../stylesheets/Header.less';
 import cx from 'classnames';
 
-@connect({
-  stores: {
-    UserStore: UserStore,
-    HttpStore: HttpStore
-  }
-})
 class Header extends Component {
+  static propTypes = {
+    user: React.PropTypes.object,
+    numActiveRequests: React.PropTypes.number
+  }
+
   render() {
-    var user = this.props.UserStore.user;
-    var loadingSomething = this.props.HttpStore.numActiveRequests > 0;
+    var user = this.props.user;
+    var loadingSomething = this.props.numActiveRequests > 0;
 
     return (
       <div className={cx('row', styles.base)}>
@@ -39,4 +38,13 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default connect({
+  stores: {
+    UserStore: UserStore,
+    HttpStore: HttpStore
+  },
+  transform: (stores) => ({
+    user: stores.UserStore.user,
+    numActiveRequests: stores.HttpStore.numActiveRequests
+  })
+})(Header);

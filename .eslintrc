@@ -1,29 +1,30 @@
-/*
-
-Configuration of Javascript linting. Extends from Airbnb's comprehensive
-JS Style guide. Read all about it:
-
-https://github.com/airbnb/javascript
-
- */
 {
-  "extends": "eslint-config-airbnb",
   "parser": "babel-eslint",
+  "extends": "airbnb",
   "env": {
-      "browser": true,
-      "node": true
+    "browser": true,
+    "node": true,
+    "jest": true
   },
-  "rules": {
-    "no-var": [0],
-    "max-len": [2, 80, 4],
-    "no-unused-vars": [2, {"vars": "all", "args": "none"}],
-    "handle-callback-err": [0],
-
-    "react/jsx-uses-react": 2,
-    "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2
+  "ecmaFeatures": {
+    "jsx": true
   },
   "plugins": [
-    "react"
-  ]
+    "eslint-plugin-react"
+  ],
+  "rules": {
+    "strict": 0,
+    "comma-dangle": [2, "never"],
+    "react/wrap-multilines": 0,
+    "no-var": 0,
+    "react/sort-comp": 0,
+    "no-unused-vars": [2, {"args": "none"}],
+
+    "react/react-in-jsx-scope": 2,
+    "react/prefer-es6-class": 0,
+    "react/prop-types": 2,
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-uses-react": [2, {"pragma": "React"}],
+    "react/jsx-uses-vars": 2
+  }
 }

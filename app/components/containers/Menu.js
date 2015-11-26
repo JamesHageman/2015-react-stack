@@ -5,14 +5,12 @@ import NavList from '../ui/NavList';
 import styles from '../stylesheets/Menu.less';
 import cx from 'classnames';
 
-@connect({
-  stores: {
-    MenuStore: MenuStore
-  }
-})
 class Menu extends Component {
+  static propTypes = {
+    menuItems: React.PropTypes.array
+  }
   render() {
-    var menuItems = this.props.MenuStore.menuItems;
+    var menuItems = this.props.menuItems;
 
     return (
       <div className={cx('col-md-3', 'col-sm-12', styles.base)}>
@@ -22,4 +20,9 @@ class Menu extends Component {
   }
 }
 
-export default Menu;
+export default connect({
+  stores: {
+    MenuStore: MenuStore
+  },
+  transform: (stores) => ({ menuItems: stores.MenuStore.menuItems })
+})(Menu);
