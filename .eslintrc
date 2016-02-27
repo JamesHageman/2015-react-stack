@@ -20,9 +20,10 @@
     "react/sort-comp": 0,
     "no-unused-vars": [2, {"args": "none"}],
 
+    "react/no-multi-comp": 0,
     "react/react-in-jsx-scope": 2,
     "react/prefer-es6-class": 0,
-    "react/prop-types": 2,
+    "react/prop-types": 0,
     "react/jsx-indent-props": [2, 2],
     "react/jsx-uses-react": [2, {"pragma": "React"}],
     "react/jsx-uses-vars": 2

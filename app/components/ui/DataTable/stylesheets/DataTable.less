@@ -1,0 +1,144 @@
+@import '../../../stylesheets/variables.less';
+@import '~bootstrap/less/mixins.less';
+
+@formRowBackground: #eee;
+@datatable-font-size: 14px;
+
+
+.base {
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.pullLeftDesktop {
+  @media (min-width: @screen-sm-min) {
+    float: left;
+    .clearfix();
+  }
+}
+
+.pullRightDesktop {
+  @media (min-width: @screen-sm-min) {
+    float: right;
+    .clearfix();
+  }
+}
+
+.formRow {
+  padding-top: @padding;
+  background-color: @formRowBackground;
+}
+
+.formControlsRow {
+  // height: 30px;
+  // margin-bottom: 25px;
+  padding-top: 10px;
+  background-color: @formRowBackground;
+}
+
+.gridRow {
+  background-color: #fff;
+}
+
+.background () {
+  background-color: #fff;
+  background-image: none;
+}
+
+:global .public_fixedDataTable_main {
+  position: relative;
+  font-size: @datatable-font-size;
+  border: none;
+  cursor: pointer;
+
+  :global .Scrollbar_face {
+    opacity: 0.7;
+  }
+}
+
+:global .public_fixedDataTable_header .public_fixedDataTableCell_main {
+  .background();
+}
+
+:global .public_fixedDataTableCell_main:hover .fixedDataTableCellLayout_columnResizerKnob {
+  visibility: visible;
+  background-color: #d3d3d3;
+
+}
+
+:global .fixedDataTableCellLayout_columnResizerContainer:hover .fixedDataTableCellLayout_columnResizerKnob {
+  visibility: visible;
+  background-color: #53b6e7 !important;
+}
+
+:global .public_fixedDataTable_header {
+  .background();
+  line-height: 1;
+}
+
+.row, .row :global .public_fixedDataTableCell_main,
+:global .public_fixedDataTable_header .public_fixedDataTableCell_main {
+  background-image: none;
+  background-color: #fff;
+  border: none;
+}
+
+.rowEven, .rowEven :global .public_fixedDataTableCell_main {
+  background-color: @formRowBackground;
+}
+
+.selectableRow {
+  user-select: none;
+}
+
+.selectedRow {
+  background-image: none;
+  background-color: lighten(@brand-primary, 25%)!important;
+
+  & a {
+    color: @link-hover-color;
+  }
+}
+
+.filterLabel {
+  margin-left: @padding;
+}
+
+.filterLabelContainer {
+
+}
+
+.form {
+  margin-bottom: @padding;
+}
+
+.columnSelectLabel {
+  margin-left: @padding;
+}
+
+.columnSelectLink {
+  padding-left: @padding !important;
+  padding-right: @padding !important;
+}
+
+.marginRight {
+  margin-right: @padding;
+}
+
+.container {
+}
+
+:global .public_Scrollbar_mainVertical {
+  background-color: transparent!important;
+}
+
+.footerRow {
+  background-color: @formRowBackground;
+}
+
+.columnSelectAllLabel {
+  margin-left: 10px;
+  color: @brand-primary;
+}
